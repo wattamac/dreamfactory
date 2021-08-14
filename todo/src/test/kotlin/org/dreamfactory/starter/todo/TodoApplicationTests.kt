@@ -1,10 +1,10 @@
-package org.dreamfactory.starter
+package org.dreamfactory.starter.todo
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class StarterApplicationTests {
+class TodoApplicationTests {
 
 	@Test
 	fun contextLoads() {

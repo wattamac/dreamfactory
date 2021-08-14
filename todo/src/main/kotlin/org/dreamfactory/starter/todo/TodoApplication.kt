@@ -1,11 +1,11 @@
-package org.dreamfactory.starter
+package org.dreamfactory.starter.todo
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class StarterApplication
+class TodoApplication
 
 fun main(args: Array<String>) {
-	runApplication<StarterApplication>(*args)
+	runApplication<TodoApplication>(*args)
 }

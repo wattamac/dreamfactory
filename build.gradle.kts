@@ -9,26 +9,44 @@ plugins {
 
 group = "org.dreamfactory"
 version = "0.0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_16
 
-repositories {
-	mavenCentral()
-}
 
-dependencies {
-	implementation("org.springframework.boot:spring-boot-starter")
-	implementation("org.jetbrains.kotlin:kotlin-reflect")
-	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
-}
-
-tasks.withType<KotlinCompile> {
-	kotlinOptions {
-		freeCompilerArgs = listOf("-Xjsr305=strict")
-		jvmTarget = "16"
+allprojects {
+	repositories {
+		mavenCentral()
 	}
 }
 
-tasks.withType<Test> {
-	useJUnitPlatform()
+subprojects {
+	apply {
+		plugin("java")
+		plugin("org.springframework.boot")
+		plugin("io.spring.dependency-management")
+
+		plugin("kotlin")
+		plugin("kotlin-kapt")
+		plugin("kotlin-spring")
+	}
+
+	java.sourceCompatibility = JavaVersion.VERSION_16
+
+	dependencies {
+		implementation("org.springframework.boot:spring-boot-starter")
+		implementation("org.jetbrains.kotlin:kotlin-reflect")
+		implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+		testImplementation("org.springframework.boot:spring-boot-starter-test")
+	}
+
+	tasks.withType<KotlinCompile> {
+		kotlinOptions {
+			freeCompilerArgs = listOf("-Xjsr305=strict")
+			jvmTarget = "16"
+		}
+	}
+
+	tasks.withType<Test> {
+		useJUnitPlatform()
+	}
+
 }
+
