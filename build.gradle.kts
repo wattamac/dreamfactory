@@ -28,7 +28,7 @@ subprojects {
 		plugin("kotlin-spring")
 	}
 
-	java.sourceCompatibility = JavaVersion.VERSION_16
+	java.sourceCompatibility = JavaVersion.VERSION_11
 
 	dependencies {
 		implementation("org.springframework.boot:spring-boot-starter")
@@ -40,7 +40,7 @@ subprojects {
 	tasks.withType<KotlinCompile> {
 		kotlinOptions {
 			freeCompilerArgs = listOf("-Xjsr305=strict")
-			jvmTarget = "16"
+			jvmTarget = "11"
 		}
 	}
 
